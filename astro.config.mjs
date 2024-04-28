@@ -13,8 +13,12 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "Guides",
-          autogenerate: { directory: "guides" },
+          label: "Getting Started",
+          autogenerate: { directory: "getting-started" },
+        },
+        {
+          label: "Server Setup",
+          autogenerate: { directory: "setup" },
         },
       ],
     }),
