@@ -1,0 +1,46 @@
+---
+title: 1.1 Hetzner Rescue Mode
+description: Going into Rescue Mode
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside type="note">
+  When getting a new server at Hetzner without an installed operating system, it
+  will automatically start in rescue mode.
+</Aside>
+
+<Aside type="note">
+  If Hetzner is configured with SSH Keys, you will need to connect via SSH using
+  the key. Otherwise, Hetzner will provide you with a root password for the
+  rescue system when activating rescue mode. You can add SSH Keys under the
+  Key-Management Section of your Server.
+</Aside>
+
+1. **Accessing Hetzner Robot Panel:**
+
+   - Log in to your Hetzner account and go to [https://robot.hetzner.com/server](https://robot.hetzner.com/server).
+
+2. **Activating Rescue Mode:**
+
+   - In the Robots Panel you need to go `Server` and select your server.
+   - Go to the Rescue Tab.
+   - Click the 'Activate Rescue System' button.
+
+3. **Rebooting the Server:**
+
+   - Reboot your server. The best way is to use the automatic hardware reset from Hetzner in the `Reset` Tab.
+
+4. **Accessing the Server via SSH:**
+
+   - Use the following command in your terminal:
+     <code>ssh root@\<ipv4\></code>
+
+5. **Logging into the Server:**
+
+   - When prompted for a username, enter "root".
+
+6. **Using the Password (if applicable):**
+   - If using the password provided by Hetzner, retrieve it from the Rescue Mode window.
+   - Copy the password.
+   - Login with the given password in ssh.

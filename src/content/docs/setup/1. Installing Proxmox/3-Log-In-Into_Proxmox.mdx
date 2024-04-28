@@ -1,0 +1,29 @@
+---
+title: 1.3 Proxmox WebUI Login
+description: Logging in into the Proxmox WebUI
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+First of all you have to set a root password for your proxmox server.
+For that you have to connect to your server via SSH again.
+
+<Aside type="note">
+  During installation Hetzner will automatically copy the SSH-Key of the Rescue
+  System or the Password to the newly installed proxmox server. You should be
+  able to login with the same credentials.
+</Aside>
+
+We now need to change the root password in order to login to the proxmox WebUI afterwards.
+
+**Changing the Password:**
+
+- Open your ssh console and enter `passwd` in the console.
+- It will then promt you to change the root password.
+
+After that, open your browser and go to the URL `https://<yourIP4>:8006`.
+
+<Aside type="note">
+  You may have to accept the risk, as your SSL certificate is currently Self
+  Signed and the browser just doesn't trust them by default.
+</Aside>
