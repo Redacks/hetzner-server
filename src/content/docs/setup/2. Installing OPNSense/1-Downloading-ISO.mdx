@@ -1,0 +1,21 @@
+---
+title: 1. Downloading ISO
+description: Downloading ISO for installation
+---
+
+The best way to download the ISO for Opnsense is with the help of `wget`.
+
+- For that first go to the download page of OPNSense. [https://opnsense.org/download/](https://opnsense.org/download/)
+- As the image type you need to select the `dvd` installer.
+- You can either copy the link from the download button or start the download in your browser and then copy the link of the file beeing downloaded.
+
+To then download the file you need to go into the proxmox console either via the WebUI or via SSH.
+You then need to run the following commands:
+
+```bash
+cd /var/lib/vz/template/iso
+wget https://mirror.ams1.nl.leaseweb.net/opnsense/releases/{version}/OPNsense-{version}-dvd-amd64.iso.bz2
+bzip2 -d OPNsense-{version}-dvd-amd64.iso.bz2
+```
+
+After that you should have a OPNSense install ISO `OPNsense-{version}-dvd-amd64.iso`
