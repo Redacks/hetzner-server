@@ -5,7 +5,7 @@ description: Setting up the Network Interfaces
 
 import { Aside } from "@astrojs/starlight/components";
 
-I wanted to use VLANs on my server to be able to seperate everything as much as possible even if its maby a bit over the top. I started by configuring a vmbr0 bridge for WAN and internet access for the opnsense later. I also added a vmbr1 bridge for the VLANs later. I used a ovs bridge which you have to install first.
+I wanted to use VLANs on my server to be able to separate everything as much as possible even if its maybe a bit over the top. I started by configuring a vmbr0 bridge for WAN and internet access for the opnsense later. I also added a vmbr1 bridge for the VLANs later. I used a ovs bridge which you have to install first.
 
 You can now carry out the following steps from your proxmox shell which you can access in the proxmox webui or your SSH console.
 
@@ -17,7 +17,7 @@ apt install openvswitch-switch
 
 If you want to copy my config look here [/etc/network/interfaces](./etc-network-interfaces/). There you will find my exact config to copy.
 Make sure to remember or backup your current values.
-You will have to replace the IPv4 and IPv6 adress and gateway in my config with your current CSSFontFeatureValuesRule.
+You will have to replace the IPv4 and IPv6 address and gateway in my config with your current CSSFontFeatureValuesRule.
 To edit `/etc/network/interfaces` you can use either `vim` or `nano`.
 
 ```sh
