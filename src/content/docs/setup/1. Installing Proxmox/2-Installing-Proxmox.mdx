@@ -16,12 +16,12 @@ I used the `Proxmox-Bullseye` version. Because at the time of writing this Debia
 
 Go into your SSH Console and write `installimage` and choose `Other > Proxmox[...]-Debian-Bullseye`
 
-In the install config I only **changed the hostname to proxmox.mydomain.com** and the disk size, because by default the config does not set the partition sizes right. I assigned as much as possible and also a bit of swap.
+In the install config I only **changed the hostname to Proxmox.mydomain.com** and the disk size, because by default the config does not set the partition sizes right. I assigned as much as possible and also a bit of swap.
 
 **Example:**
 
 ```
-HOSTNAME proxmox.redacks.com
+HOSTNAME Proxmox.redacks.com
 ```
 
 I also changed the disk size, because by default the config does not set the partition sized right. I assigned as much as possible and also a bit of swap.
@@ -36,5 +36,5 @@ LV  vg0 swap    swap    ext3    12GiB
 Save (F2) and Quit (F10) the configuration file.
 Also confirm the next two confirmations and wait until the installation is finished.
 
-If you follow this the `installimage` script will automatically install proxmox with RAID. And will setup all basic configs to get started on its own.
-After installation the server will restart and proxmox will then be accessible via port 8006 on your IP4-Address.
+If you follow this the `installimage` script will automatically install Proxmox with RAID. And will setup all basic configs to get started on its own.
+After installation the server will restart and Proxmox will then be accessible via port 8006 on your IP4-Address.

@@ -1,0 +1,57 @@
+---
+title: 2. Creating OPNSense VM
+description: Creating and configuring the OPNSense VM
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+From the Proxmox WebUI we can now create a new VirtualMachine (VM). For that you can click on the button on the top right `Create VM`
+For some settings you need to enable `Advanced` in the bottom right of the modal.
+
+- General
+
+  - Name: `opnsense`
+  - VM ID: `100`
+  - Start at boot: `Yes`
+
+- OS
+
+  - ISO image: `OPNsense-{version}-dvd-amd64.iso`
+
+- System
+
+  - Qemu Agent: `True` (That way Proxmox qemu can tell the vm to start, stop and restart when the qemu agent is installed)
+
+- Disk
+
+  - Disk size: `10-30 GB` (depends on the amount of firewall rules, configs and plugins)
+
+- CPU
+
+  - Cores: `2-4` (depends on the network traffic)
+
+- Memory
+
+  - `3GB-6GB` (depends on the network traffic and rules and plugins)
+
+- Network
+
+  - Bridge: `vmbr0 (WAN)`
+  - Multiqueue: `8` (Allows for more internet speed)
+
+## Post-Create
+
+We now also need the add the second network interface that also allows OPNSense to use the VLAN "Network".
+
+For that you need to select the OPNSense VM in Proxmox and go to the `Hardware` settings.
+From there you need to click the `Add` button and select `Network Device`.
+
+Make sure `Advanced` is enabled again to see all settings.
+
+Settings:
+
+- Bridge: `vmbr1 (VLAN)`
+- VLAN TAG: `100`
+- Multiqueue: `8` (Allows for more internet speed)
+
+Now you can start the OPNSense VM and we can start configuring everything.
