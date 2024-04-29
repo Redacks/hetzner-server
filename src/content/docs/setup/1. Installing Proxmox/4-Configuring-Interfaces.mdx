@@ -15,9 +15,9 @@ apt upgrade
 apt install openvswitch-switch
 ```
 
-If you want to copy my config look here [/etc/network/interfaces](./etc-network-interfaces/). There you will find my exact config to copy.
+If you want to copy my config look here [/etc/network/interfaces](../../configs/etc-network-interfaces/). There you will find my exact config to copy.
 Make sure to remember or backup your current values.
-You will have to replace the IPv4 and IPv6 address and gateway in my config with your current CSSFontFeatureValuesRule.
+You will have to replace the IPv4 and IPv6 address and gateway in my config with your current values.
 To edit `/etc/network/interfaces` you can use either `vim` or `nano`.
 
 ```sh
@@ -26,14 +26,16 @@ nano /etc/network/interfaces
 
 When you have adjusted the configuration you need to restart the server so that the new config can be applied.
 
-```sh
-reboot
-```
-
 <Aside type="danger">
   MAKE SURE THE VALUES ARE CORRECT OTHERWISE YOU WILL NOT REACH THE SERVER ON
   THE IP ANYMORE (HETZNER RESCUE MODE TO YOUR HELP)
 </Aside>
+
+```sh
+reboot
+```
+
+
 
 ### What did i configure?
 
