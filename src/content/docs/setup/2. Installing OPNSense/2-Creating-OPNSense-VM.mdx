@@ -54,4 +54,29 @@ Settings:
 - VLAN TAG: `100`
 - Multiqueue: `8` (Allows for more internet speed)
 
-Now you can start the OPNSense VM and we can start configuring everything.
+## Trunking
+
+### Why Trunks?
+
+Trunks are essential in networking setups, especially in VLAN configurations, as they allow for the transmission of multiple VLANs over a single network link.
+By configuring Opnsense as a trunk, it can effectively handle traffic from various VLANs within the VLAN-NET environment.
+Trunks help optimize network utilization and simplify network management by reducing the number of physical connections required.
+
+### Configuration
+
+To configure Opnsense as a trunk in the VLAN-NET, follow these steps:
+
+1. Edit VM Configuration: Access the Proxmox shell and navigate to the VM configuration directory.
+
+> ```
+> cd /etc/pve/qemu-server
+> nano 100.conf
+> ```
+
+2. Update net1 Configuration: Locate the configuration line for net1 in the file and append trunks=1-4095 to it. After the modification, the line should resemble:
+
+> ```
+> net1: virtio=BC:24:11:43:7D:C5,bridge=vmbr1,firewall=1,queues=8,trunks=1-4095
+> ```
+
+This ensures Opnsense functions as a trunk in the VLAN-NET.

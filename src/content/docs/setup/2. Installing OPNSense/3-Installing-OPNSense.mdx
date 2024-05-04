@@ -2,3 +2,27 @@
 title: 3. Installing OPNSense
 description: Installing OPNSense with the ISO
 ---
+
+import { Aside } from "@astrojs/starlight/components";
+
+If you did everything correctly you should be able to startup the VM.
+For that you can go to the `Console` tab of your opnsense VM in the Proxmox WebUI.
+To startup the VM if you didn't already otherwise you can click the `Start Now` button.
+
+Wait until the opnsense installer finishes loading and prompts you with a login. Dont press any other buttons during installation otherwise you might need to restart the VM.
+
+Because we want to install opnsense we use `installer` as a username to login and `opnsense` as the default password.
+
+The OPNSense Installer will now prompt you with a keymap selection. I selected the `German` keymap, because I have a german keyboard.
+If you want to you can test your keymap at the top of the selection.
+If you are sure you selected the right keymap you can continue.
+
+<Aside type="caution">
+  If you select a wrong keymap you may have problems later when entering a
+  password for your root user. Because some special symbols can be interpreted
+  differently on different keymaps. This can lead to your login only working in
+  the console not the OPNSense WebUI later on.
+</Aside>
+
+After selecting your keymap OPNSense will ask you how you would like to install it.
+I simply
