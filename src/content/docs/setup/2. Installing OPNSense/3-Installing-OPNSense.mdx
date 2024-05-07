@@ -25,4 +25,28 @@ If you are sure you selected the right keymap you can continue.
 </Aside>
 
 After selecting your keymap OPNSense will ask you how you would like to install it.
-I simply
+I selected `ZFS` for no particular reason. I just trust ZFS.
+
+After that we select a `stripe` installation because our proxmox already has raid setup.
+
+It will then prompt you to select a drive. You should only have one option available.
+To select the drive press space and then enter to confirm.
+
+It will ask you one more time to confirm because you will overwrite everything on the drive.
+Because its only an empty virtual drive we can safely continue by selecting `Yes`.
+
+After that the installation should start. This will take a few minutes depending on your server performance.
+
+After the main installation finished it will prompt you to reset your root password.
+I selected a secure password for my root user.
+
+<Aside type="note">
+  Make sure to remember that password. You will need to enter it in the WebUI
+  and in the opnsense console sometimes. If you forget your password, you will
+  have to reset your entire OPNSense
+</Aside>
+
+After that you can select `Complete Install` to finish the installation. This will reboot the VM and start of the actual drive now and not the ISO anymore.
+If you want to you can remove the ISO, but you are not required to.
+
+You should now have the basic installation running on your server.
