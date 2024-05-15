@@ -8,6 +8,8 @@ import { Aside } from "@astrojs/starlight/components";
 To run the Wizzard we need to connect to the OPNSense WebUI.
 We could connect via our public IPv4, but opnsense won't allow it because it tries to connect from DNS Rebind Attacks and thus will block the login.
 
+## Connecting to WebUI
+
 To connect to OPNSense we can use a SSH Tunnel.
 
 `ssh -L 443:<WAN_IPv4>:443 root@<EXTERNAL_IPv4>`
@@ -29,6 +31,8 @@ THIS WILL HAPPEN A LOT DURING SETUP!
 
 In the WebUI you can login to your OPNSense with the password you selected during
 installation or the default password `opnsense` if you did not configure a password during installation.
+
+## Running the Wizzard
 
 Normally you should get redirected to the Wizzard after a few seconds. If not you can find the Wizzard unter `System/Wizzard`.
 
