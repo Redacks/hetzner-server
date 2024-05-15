@@ -1,0 +1,59 @@
+---
+title: 5. OPNSense Setup Wizzard
+description: Setting up OPNSense in the WebUI
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+To run the Wizzard we need to connect to the OPNSense WebUI.
+We could connect via our public IPv4, but opnsense won't allow it because it tries to connect from DNS Rebind Attacks and thus will block the login.
+
+To connect to OPNSense we can use a SSH Tunnel.
+
+`ssh -L 443:<WAN_IPv4>:443 root@<EXTERNAL_IPv4>`
+
+This will open up a tunnel. After that you should be able to connect via `https://localhost`.
+
+<Aside type="note">
+  If you cannot reach the OPNSense make sure that the firewall is disabled in
+  OPNSense. You can do so from Proxmox in the OPNSense console by selecting
+  option 8. In the OPNSense console you can then type `pfctl -d` to disable the
+  firewall. It will reenable after each apply you do inside of the OPNSense
+  WebUI or by running `pfctl -e`.
+
+All Rules will be disabled when the firewall is disabled. If every you can't reach OPNSense on the tunnel or you need to trubbleshoot make sure to disable the firewall again.
+
+THIS WILL HAPPEN A LOT DURING SETUP!
+
+</Aside>
+
+In the WebUI you can login to your OPNSense with the password you selected during
+installation or the default password `opnsense` if you did not configure a password during installation.
+
+Normally you should get redirected to the Wizzard after a few seconds. If not you can find the Wizzard unter `System/Wizzard`.
+
+Now we can start running the Wizzard for further setup steps. To start the Wizzard hit `Next`.
+
+On the first page the only thing I personally change is the Domain to my domain `example.com`
+
+I also like to add a secondary DNS Server. In my case the primary DNS is `1.1.1.1` (cloudflare) and the secondary is `8.8.8.8` (google)
+
+After that you can hit `Next` to go to the next page.
+
+On the next page I only change the timezone to in my case `Europe/Berlin`
+
+After that you can hit `Next` again to go to then next page.
+
+The next page I leave as is. I only check if my WAN is configured correctly again, which it should otherwise you should not reach the OPNSense.
+
+After that you can hit `Next` again.
+
+On the next page I also leave everything as is, because I don't want to use a LAN but multiple VLANs
+
+After that you can hit `Next` again.
+
+On the next page you will have the chance to change your root password again. If you did not already change it during installation do it now!
+If you already changed it you can just leave it empty.
+
+To finish off the setup with the Wizzard you can hit `Next` again and after that `Reload`. This will reload the OPNSense.
+If you cannot reach the WebUI after the reload make sure the firewall didn't enable itself.

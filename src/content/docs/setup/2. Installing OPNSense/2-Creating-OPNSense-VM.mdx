@@ -41,6 +41,13 @@ For some settings you need to enable `Advanced` in the bottom right of the modal
 
 ## Post-Create
 
+<Aside type="note">
+  This is only if you are using a setup with a singular IPv4. If you are using
+  two, vmbr1 will be your second WAN and you will have to add it the same way as
+  the first WAN. Then you can follow the next steps with vmbr2 which will then
+  be your VLAN interface.
+</Aside>
+
 We now also need the add the second network interface that also allows OPNSense to use the VLAN "Network".
 
 For that you need to select the OPNSense VM in Proxmox and go to the `Hardware` settings.
@@ -74,6 +81,11 @@ To configure Opnsense as a trunk in the VLAN-NET, follow these steps:
 > ```
 
 2. Update net1 Configuration: Locate the configuration line for net1 in the file and append trunks=1-4095 to it. After the modification, the line should resemble:
+
+<Aside type="note">
+  This is only if you are using a setup with a singular IPv4. If you are using
+  two, this will be net2 with `bridge=vmbr2`
+</Aside>
 
 > ```
 > net1: virtio=BC:24:11:43:7D:C5,bridge=vmbr1,firewall=1,queues=8,trunks=1-4095

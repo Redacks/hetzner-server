@@ -27,6 +27,13 @@ We will use this IP address as our OPNSense IP.
 
 For that we will now have to select option `2. Set interface IP address`.
 
+<Aside type="note">
+  This is only if you are using a setup with a singular IPv4. If you are using
+  two you will need to use `10.10.1.1` as your WAN IPv4 and `10.10.1.0` as your
+  WAN IPv4 gateway. Here we will only add the first WAN the second WAN we can
+  later add in the WebUI
+</Aside>
+
 - Enter the number of the interface to configure: (Select your WAN interface)
 - Configure IPv4 address WAN interface via DHCP? `No`
 - Enter the new WAN IPv4 address: `10.10.10.1`

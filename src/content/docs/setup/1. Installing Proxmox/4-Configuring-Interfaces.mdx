@@ -24,6 +24,13 @@ To edit `/etc/network/interfaces` you can use either `vim` or `nano`.
 nano /etc/network/interfaces
 ```
 
+<Aside type="note">
+  In my new server I have two IP4 Adresses. Thats why my new config is
+  configured for two IPv4 Addresses. I added a second config you can also copy
+  with then same setup but for two IPv4 addresses.
+  [/etc/network/interfaces](../../configs/Proxmox/etc-network-interfaces-v2/)
+</Aside>
+
 When you have adjusted the configuration you need to restart the server so that the new config can be applied.
 
 <Aside type="danger">
@@ -37,5 +44,6 @@ reboot
 
 ### What did i configure?
 
-All Requests to the server except on port 22(SSH) and 8006(Proxmox) will get redirected to the opnsense (static IP).
+All Requests to the server (on the primary IPv4) except on port 22(SSH) and 8006(Proxmox) will get redirected to the opnsense (static IP).
+If you are using my two IPv4 setup, every request on the secondary IPv4 will directly get redirected to the opnsense.
 I only configured IPv4 you can also set it up for IPv6 if needed.

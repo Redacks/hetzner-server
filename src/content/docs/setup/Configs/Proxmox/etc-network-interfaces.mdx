@@ -25,14 +25,14 @@ iface lo inet6 loopback
 
 auto eno1
 iface eno1 inet static
-        address <IPv4_ADDRESS>
+        address <IPv4_ADDRESS>/<IPv4_SUBNET>
         gateway <IPv4_GATEWAY>
         post-up sysctl -w net.ipv4.ip_forward=1
         post-up iptables -t nat -A PREROUTING -i eno1 -p tcp -m multiport ! --dport 22,8006 -j DNAT --to 10.10.10.1
         post-up iptables -t nat -A PREROUTING -i eno1 -p udp -j DNAT --to 10.10.10.1
 
 iface eno1 inet6 static
-        address <IPv6_ADDRESS>
+        address <IPv6_ADDRESS>/<IPv6_SUBNET>
         gateway <IPv6_GATEWAY>
 
 auto vmbr0
