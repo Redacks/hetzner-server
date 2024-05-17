@@ -1,0 +1,15 @@
+---
+title: (8. Installing Tailscale)
+description: Installing Tailscale onto OPNSense
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+Tailscale is a VPN like software that allows you to create virtual network between your devices. It also allows for simple in Browser SSH and Exit Node creation if you want to use your server as a VPN aswell.
+It also has a lot of other usefull features like file sharing and much more.
+
+<Aside type="note">
+This step is optional. I recomend it because it enables a secure private access to your OPNsense server from anywhere, without needing to open any ports.
+That way you can access OPNSense itself and devices inside of VLANs for debugging purposes through Tailscale. This also later enables you to access certain services only trough Tailscale.
+This ensures that users cannot access your internal services in any way possible externally.
+</Aside>

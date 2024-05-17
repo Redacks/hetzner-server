@@ -1,6 +1,20 @@
 ---
-title: 6. RFC1918 Alias
+title: 7. RFC1918 Alias
 description: Creating RFC1918 Alias
 ---
 
-Next
+import { Aside } from "@astrojs/starlight/components";
+
+
+Next I create an alias for RFC1918. RFC1918 normally stands for all private IP addresses in your local network.
+In my setup this alias is beeing used for rules that give internet access to a certain VLAN except everything inside of the RFC1918.
+This makes it a lot easier to create internet access rules for the VLANs.
+
+To create an alias head to `Firewall/Aliases`. There you can hit the plus icon to create a new alias.
+As a name as already specified I will name it `RFC1918`.
+The type should be `Network(s)` because I will be selecting all my internal networks.
+As content I select every network that starts with  `__` so for example `__wan_network__` which would deny access to proxmox because its in the WAN network.
+
+<Aside type="caution">
+Make sure to update this alias every time you add a new network/interface to your OPNSense otherwise VLAN's could access devices on the connected network.
+</Aside>
