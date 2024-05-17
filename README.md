@@ -17,8 +17,8 @@ If you have any optimization ideas or suggestions for improvement, please feel f
 
 Here you can see what I have planned to deploy on my server and document it.
 
-- [ ] Proxmox Setup
-- [ ] Opnsense Setup
+- [x] Proxmox Setup
+- [/] Opnsense Setup
 - [ ] Tailscale Setup
 - [ ] Docker Setup
 - [ ] Proxy Setup
