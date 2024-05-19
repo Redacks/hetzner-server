@@ -9,7 +9,54 @@ Tailscale is a VPN like software that allows you to create virtual network betwe
 It also has a lot of other usefull features like file sharing and much more.
 
 <Aside type="note">
-This step is optional. I recomend it because it enables a secure private access to your OPNsense server from anywhere, without needing to open any ports.
-That way you can access OPNSense itself and devices inside of VLANs for debugging purposes through Tailscale. This also later enables you to access certain services only trough Tailscale.
-This ensures that users cannot access your internal services in any way possible externally.
+  This step is optional. I recomend it because it enables a secure private
+  access to your server from anywhere, without needing to open any ports. That
+  way you can access OPNSense itself and devices inside of VLANs for debugging
+  purposes through Tailscale. This also later enables you to access certain
+  services only trough Tailscale. This ensures that users cannot access your
+  internal services in any way possible externally.
 </Aside>
+
+## Installing Tailscale
+
+Tailscale is sadly not directly available as a plugin. But its still rather simple to install.
+I mainly followed the official Tailscale guide which isn't 100% correct at the moment.
+
+-> [Tailscale Guide](https://tailscale.com/kb/1097/install-opnsense)
+
+First of all we need to download the additionall ports for OPNSense which will include Tailscale. For that you need to open your OPNSense Console and login.
+Then you can choose option `8` to open a terminal.
+
+There you can then run `opnsense-code ports` to download the additionall ports. This will take a while to download.
+
+To then install Tailscale we need to go to the Tailscale folder. `cd /usr/ports/security/tailscale`
+
+In there we can then run `make install` to install Tailscale. This will take several minutes depending on your CPU power.
+
+After that we will need to start the `tailscaled` deamon. You can do so by running `service tailscaled enable` and `service tailscaled start`.
+
+Now you should have tailscale installed. You can verify by running `tailscale version`.
+
+## Connect Tailscale
+
+You can now choose how you want to use Tailscale with your OPNSense.
+
+- If you only want to connect OPNSense to your Tailscale network you can run `tailscale up`.
+- If you want SSH access over Tailscale you can run `tailscale up --ssh`.
+- If you want to use OPNSense as a VPN or Exit Node run `tailscale up --advertise-exit-node`
+- (My choice) If you want to use it with SSH and as and Exit Node run `tailscale up --ssh --advertise-exit-node`
+
+### Activating Exit Node
+
+Even tho because of firewall rules Tailscale will not have internet access on the exit node for now you also need to make sure to allow the device to be used as an access node
+in the Tailscale `Admin Console`. There you can click the option buttons next to your device and go to `Edit route settings`. There you need to enable `Use as exit node`.
+This should be everything you need to do. Now it should be an available option as an exit node on for exampel your desktop or mobile device in the Tailscale app.
+
+## Adding Tailscale Interface
+
+For this you need to be inside of your OPNSense WebUI. If you are not still connected connect via SSH Tunnels.
+Inside of the WebUI go to `Interfaces/Assignments`
+
+## Updating Tailscale
+
+//Write down Windows Settings Errors
